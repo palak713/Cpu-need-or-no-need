@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>CPU NEED OR NO NEED</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
+.btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+.btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
+.btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
+.btn-primary.active { color: rgba(255, 255, 255, 0.75); }
+.btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
+.btn-block { width: 100%; display:block; }
+body {
+	width: 100%;
+	height:50%;
+	font-family: 'Serif', Cursive;
+	color: #fff;
+	font-size: 18px;
+	text-align:left;
+	letter-spacing:1.9px;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+    .login {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:400px;
+	height:400px;
+}
+
+.login h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:10px; text-align:center; }
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: rgba(0,0,0,0.3);
+	border-style: none;
+	outline: none;
+	padding: 13px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 10px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+}
+</style>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predicting the Need for ICU Admission in COVID-19</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}"method="post">
+                           <p>AGE Above 65</p>
+       <input type="text" name="AGE_ABOVE65" placeholder="AGE_ABOVE65" required="required" /><br>
+                           <p>Gender</p>
+       <input type="text" name="GENDER" placeholder="GENDER" required="required" /><br>
+                          <p>DISEASEGROUPING1:</p>
+       <input type="text" name="DISEASEGROUPING1" placeholder="DISEASEGROUPING1" required="required" /><br>
+                          <p>DISEASEGROUPING2</p>
+       <input type="text" name="DISEASEGROUPING2" placeholder="DISEASEGROUPING2" required="required" /><br>
+                         <p>DISEASEGROUPING3</p>
+       <input type="text" name="DISEASEGROUPING3" placeholder="DISEASEGROUPING3" required="required" /><br>
+                          <p>DISEASEGROUPING4</p>
+       <input type="text" name="DISEASEGROUPING4" placeholder="DISEASEGROUPING4" required="required" /><br>
+                          <p>DISEASEGROUPING5</p>
+       <input type="text" name="DISEASEGROUPING5" placeholder="DISEASEGROUPING5" required="required" /><br>
+                           <p>DISEASEGROUPING6</p>
+       <input type="text" name="DISEASEGROUPING6" placeholder="DISEASEGROUPING6" required="required" /><br>
+                               <p>HTN</p>
+       <input type="text" name="HTN" placeholder="HTN" required="required" /><br>
+                           <p>IMMUNOCOMPROMISED</p>
+       <input type="text" name="IMMUNOCOMPROMISED" placeholder="IMMUNOCOMPROMISED" required="required" /><br>
+                            <p> OTHER</p>
+       <input type="text" name="OTHER" placeholder="OTHER" required="required" /><br>
+                         <p>ALBUMIN_MEDIAN</p>
+       <input type="text" name="ALBUMIN_MEDIAN" placeholder="ALBUMIN_MEDIAN" required="required" /><br>
+                       <p>BE_ARTERIAL_MEDIAN</p>
+       <input type="text" name="BE_ARTERIAL_MEDIAN" placeholder="BE_ARTERIAL_MEDIAN" required="required" /><br>
+                        <p> BE_VENOUS_MEDIAN </p>
+       <input type="text" name="BE_VENOUS_MEDIAN" placeholder="BE_VENOUS_MEDIAN" required="required" /><br>
+                       <p>	BIC_VENOUS_MEDIAN</p>
+       <input type="text" name="BIC_VENOUS_MEDIAN" placeholder="BIC_VENOUS_MEDIAN" required="required" /><br>
+                      <p>  BLAST_MEDIAN</p>
+       <input type="text" name="BLAST_MEDIAN" placeholder="BLAST_MEDIAN" required="required" /><br>
+                        <p> CALCIUM_MEDIAN</p>
+       <input type="text" name="CALCIUM_MEDIAN" placeholder="CALCIUM_MEDIAN" required="required" /><br>
+                       <p> CREATININ_MEDIAN </p>
+       <input type="text" name="CREATININ_MEDIAN" placeholder="CREATININ_MEDIAN" required="required" /><br>
+                      <p> FFA_MEDIAN</p>
+       <input type="text" name="FFA_MEDIAN" placeholder="FFA_MEDIAN" required="required" /><br>
+                     <p>  GGT_MEDIAN</p>
+       <input type="text" name="GGT_MEDIAN" placeholder="GGT_MEDIAN" required="required" /><br>
+                 <p>  GLUCOSE_MEDIAN</p>
+       <input type="text" name="GLUCOSE_MEDIAN" placeholder="GLUCOSE_MEDIAN" required="required" /><br>
+                  <p>  HEMATOCRITE_MEDIAN</p>
+       <input type="text" name="HEMATOCRITE_MEDIAN" placeholder="HEMATOCRITE_MEDIAN" required="required" /><br>
+                 <p>  HEMOGLOBIN_MEDIAN</p>
+       <input type="text" name="HEMOGLOBIN_MEDIAN" placeholder="HEMOGLOBIN_MEDIAN" required="required" /><br>
+                     <p>  INR_MEDIAN</p>
+       <input type="text" name="INR_MEDIAN" placeholder="INR_MEDIAN" required="required" /><br>
+                   <p> LACTATE_MEDIAN</p>
+       <input type="text" name="LACTATE_MEDIAN" placeholder="LACTATE_MEDIAN" required="required" /><br>
+                <p> LEUKOCYTES_MEDIAN</p>
+       <input type="text" name="LEUKOCYTES_MEDIAN" placeholder="LEUKOCYTES_MEDIAN" required="required" /><br>
+                 <p> LINFOCITOS_MEDIAN</p>
+       <input type="text" name="LINFOCITOS_MEDIAN" placeholder="LINFOCITOS_MEDIAN" required="required" /><br>
+                  <p>  NEUTROPHILES_MEDIAN</p>
+       <input type="text" name=" NEUTROPHILES_MEDIAN" placeholder="NEUTROPHILES_MEDIAN" required="required" /><br>
+                  <p> P02_VENOUS_MEDIAN</p>
+       <input type="text" name="P02_VENOUS_MEDIAN" placeholder="P02_VENOUS_MEDIAN" required="required" /><br>
+                   <p> PCR_MEDIAN</p>
+       <input type="text" name="PCR_MEDIAN" placeholder="PCR_MEDIAN" required="required" /><br>
+                <p> PH_VENOUS_MEDIAN</p>
+       <input type="text" name="PH_VENOUS_MEDIAN" placeholder="PH_VENOUS_MEDIAN" required="required" /><br>
+                   <p>PLATELETS_MEDIAN</p>
+       <input type="text" name="PLATELETS_MEDIAN" placeholder="PLATELETS_MEDIAN" required="required" /><br>
+                   <p>POTASSIUM_MEDIAN</p>
+       <input type="text" name="POTASSIUM_MEDIAN" placeholder="POTASSIUM_MEDIAN" required="required" /><br>
+                   <p>SAT02_VENOUS_MEDIAN</p>
+       <input type="text" name="SAT02_VENOUS_MEDIAN" placeholder="SAT02_VENOUS_MEDIAN" required="required" /><br>
+                   <p> SODIUM_MEDIA</p>
+       <input type="text" name="SODIUM_MEDIAN" placeholder="SODIUM_MEDIAN" required="required" /><br>
+                   <p>TGO_MEDIAN</p>
+        <input type="text" name="TGO_MEDIAN" placeholder="TGO_MEDIAN" required="required" /><br>
+                    <p>TGP_MEDIAN</p>
+        <input type="text" name="TGP_MEDIAN" placeholder="TGP_MEDIAN" required="required" /><br>
+                   <p>UREA_MEDIAN</p>
+        <input type="text" name="UREA_MEDIAN" placeholder="UREA_MEDIAN" required="required" /><br>
+                     <p>DIMER_MEDIAN</p>
+        <input type="text" name="DIMER_MEDIAN" placeholder="DIMER_MEDIAN" required="required" /><br>
+                 <p>BLOODPRESSURE_DIASTOLIC_MEAN</p>
+        <input type="text" name="BLOODPRESSURE_DIASTOLIC_MEAN" placeholder="BLOODPRESSURE_DIASTOLIC_MEAN" required="required" /><br>
+                <p>RESPIRATORY_RATE_MEAN</p>
+        <input type="text" name="RESPIRATORY_RATE_MEAN" placeholder="RESPIRATORY_RATE_MEAN" required="required" /><br>
+                  <p> TEMPERATURE_MEAN</p>
+        <input type="text" name="TEMPERATURE_MEAN" placeholder="TEMPERATURE_MEAN" required="required" /><br>
+                 <p> OXYGEN_SATURATION_MEAN</p>
+        <input type="text" name="OXYGEN_SATURATION_MEAN" placeholder="OXYGEN_SATURATION_MEAN" required="required" /><br>
+                  <p>BLOODPRESSURE_DIASTOLIC_MEDIAN</p>
+        <input type="text" name="BLOODPRESSURE_DIASTOLIC_MEDIAN" placeholder="BLOODPRESSURE_DIASTOLIC_MEDIAN" required="required" /><br>
+                 <p>RESPIRATORY_RATE_MEDIAN</p>
+        <input type="text" name="RESPIRATORY_RATE_MEDIAN" placeholder=" RESPIRATORY_RATE_MEDIAN" required="required" /><br>
+                  <p>TEMPERATURE_MEDIAN</p>
+        <input type="text" name="TEMPERATURE_MEDIAN" placeholder="TEMPERATURE_MEDIAN" required="required" /><br>
+                 <p>OXYGEN_SATURATION_MEAN</p>
+        <input type="text" name="OXYGEN_SATURATION_MEAN" placeholder="OXYGEN_SATURATION_MEAN" required="required" /><br>
+                  <p> BLOODPRESSURE_DIASTOLIC_MEDIAN</p>
+        <input type="text" name="BLOODPRESSURE_DIASTOLIC_MEDIAN" placeholder="BLOODPRESSURE_DIASTOLIC_MEDIAN" required="required" /><br>
+                   <p>TEMPERATURE_MEDIAN</p>
+        <input type="text" name="TEMPERATURE_MEDIAN" placeholder="TEMPERATURE_MEDIAN" required="required" /><br>
+                  <p> OXYGEN_SATURATION_MEDIAN</p>
+        <input type="text" name="OXYGEN_SATURATION_MEDIAN" placeholder="OXYGEN_SATURATION_MEDIAN" required="required"><br>
+                  <p>BLOODPRESSURE_DIASTOLIC_MIN</p>
+        <input type="text" name="BLOODPRESSURE_DIASTOLIC_MIN" placeholder="BLOODPRESSURE_DIASTOLIC_MIN" required="required" /><br>
+                    <p>BLOODPRESSURE_SISTOLIC_MIN</p>
+        <input type="text" name="BLOODPRESSURE_SISTOLIC_MIN" placeholder="BLOODPRESSURE_SISTOLIC_MIN" required="required" /><br>
+                     <p> OXYGEN_SATURATION_MIN</p>
+        <input type="text" name="OXYGEN_SATURATION_MIN" placeholder="OXYGEN_SATURATION_MIN" required="required" /><br>
+                    <p>BLOODPRESSURE_DIASTOLIC_MAX</p>
+        <input type="text" name="BLOODPRESSURE_DIASTOLIC_MAX" placeholder="BLOODPRESSURE_DIASTOLIC_MAX" required="required" /><br>
+                    <p>HEART_RATE_MAX</p>
+        <input type="text" name="HEART_RATE_MAX" placeholder="HEART_RATE_MAX" required="required" /><br>
+                    <p>RESPIRATORY_RATE_MAX</p>
+        <input type="text" name="RESPIRATORY_RATE_MAX" placeholder="RESPIRATORY_RATE_MAX" required="required" /><br>
+                    <p>TEMPERATURE_MAX</p>
+        <input type="text" name="TEMPERATURE_MAX" placeholder="TEMPERATURE_MAX" required="required" /><br>
+                    <p>OXYGEN_SATURATION_MAX</p>
+        <input type="text" name="OXYGEN_SATURATION_MAX" placeholder="OXYGEN_SATURATION_MAX" required="required" /><br>
+                    <p>BLOODPRESSURE_DIASTOLIC_DIFF</p>
+        <input type="text" name="BLOODPRESSURE_DIASTOLIC_DIFF" placeholder="BLOODPRESSURE_DIASTOLIC_DIFF" required="required" /><br>
+                    <p>BLOODPRESSURE_SISTOLIC_DIFF </p>
+        <input type="text" name="BLOODPRESSURE_SISTOLIC_DIFF" placeholder="BLOODPRESSURE_SISTOLIC_DIFF" required="required" /><br>
+                    <p>HEART_RATE_DIFF<p>
+     <input type="text" name="HEART_RATE_DIFF" placeholder="HEART_RATE_DIFF" required="required" /><br>
+                    <p>OXYGEN_SATURATION_DIFF</p>
+     <input type="text" name="OXYGEN_SATURATION_DIFF" placeholder="OXYGEN_SATURATION_DIFF" required="required" /><br>
+     <p>BLOODPRESSURE_SISTOLIC_DIFF_REL</p>
+     <input type="text" name="BLOODPRESSURE_SISTOLIC_DIFF_REL" placeholder="BLOODPRESSURE_SISTOLIC_DIFF_REL" required="required" /><br>
+     <p>HEART_RATE_DIFF_RE</p>
+     <input type="text" name="HEART_RATE_DIFF_RE" placeholder="HEART_RATE_DIFF_RE" required="required" /><br>
+     <p>OXYGEN_SATURATION_DIFF</p>
+     <input type="text" name="OXYGEN_SATURATION_DIFF" placeholder="OXYGEN_SATURATION_DIFF" required="required" /><br>
+     <p>BLOODPRESSURE_SISTOLIC_DIFF_REL</p>
+     <input type="text" name="BLOODPRESSURE_SISTOLIC_DIFF_REL" placeholder="BLOODPRESSURE_SISTOLIC_DIFF_REL" required="required" /><br>
+     <p>HEART_RATE_DIFF_RE</p>
+     <input type="text" name="HEART_RATE_DIFF_RE" placeholder="HEART_RATE_DIFF_RE" required="required" /><br>
+     <p>OXYGEN_SATURATION_DIFF_REL</p>
+     <input type="text" name="OXYGEN_SATURATION_DIFF_REL" placeholder="OXYGEN_SATURATION_DIFF_REL" required="required" /><br>
+     <p>AGE_PERCENTIL_10th</p>
+     <input type="text" name="AGE_PERCENTIL_10th" placeholder="AGE_PERCENTIL_10th" required="required" /><br>
+     <p>AGE_PERCENTIL_20th</p>
+     <input type="text" name="AGE_PERCENTIL_20th" placeholder="AGE_PERCENTIL_20th" required="required" /><br>
+     <p>AGE_PERCENTIL_30th</p>
+     <input type="text" name="AGE_PERCENTIL_30th" placeholder="AGE_PERCENTIL_30th" required="required" /><br>
+     <p>AGE_PERCENTIL_40th</p>
+     <input type="text" name="AGE_PERCENTIL_40th" placeholder="AGE_PERCENTIL_40th" required="required" /><br>
+     <p>AGE_PERCENTIL_80th</p>
+     <input type="text" name="AGE_PERCENTIL_80th" placeholder="AGE_PERCENTIL_80th" required="required" /><br>
+     <p>AGE_PERCENTIL_90th</p>
+     <input type="text" name="AGE_PERCENTIL_90th" placeholder="AGE_PERCENTIL_90th" required="required" /><br>
+     <p>AGE_PERCENTIL_Above_90th</p>
+     <input type="text" name="AGE_PERCENTIL_Above90th" placeholder="AGE_PERCENTIL_Above90th" required="required" /><br><br><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+     </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
